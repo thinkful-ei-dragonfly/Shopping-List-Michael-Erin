@@ -22,10 +22,17 @@ function handleSubmit() {
 }
 
 function checkItem() {
-  $('.shopping-item-toggle').click(event => {
-    console.log($(this).parent().parent().find('.shopping-item').attr('class'));//.addClass('shopping-item__checked');
+  $('ul').on('click', '.shopping-item-toggle', function() {
+    $(this).closest('li').find('.shopping-item').toggleClass('shopping-item__checked');
+  });
+}
+
+function deleteItem() {
+  $('ul').on('click', '.shopping-item-delete', function() {
+    $(this).closest('li').remove();
   });
 }
 
 $(handleSubmit);
 $(checkItem);
+$(deleteItem);
